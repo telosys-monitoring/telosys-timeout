@@ -13,15 +13,8 @@ import javax.servlet.http.HttpServletResponse;
  * Servlet implementation class TimeoutServlet
  */
 public class TimeoutServlet extends HttpServlet {
+
 	private static final long serialVersionUID = 1L;
-	//static final Logger logger = LoggerFactory.getLogger(TimeoutServlet.class);
-	/**
-	 * @see HttpServlet#HttpServlet()
-	 */
-	public TimeoutServlet() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
@@ -40,7 +33,7 @@ public class TimeoutServlet extends HttpServlet {
 	}
 
 	public void timeout(final HttpServletRequest request, final HttpServletResponse response) throws ServletException, IOException {
-		//logger.info("timeout -- begin");
+		System.out.println("timeout -- begin");
 
 		String t = request.getParameter("t");
 		if(t == null) {
@@ -52,7 +45,7 @@ public class TimeoutServlet extends HttpServlet {
 		} else {
 			time = 20000L;
 		}
-		//logger.info("wait for "+time+" ms");
+		System.out.println("wait for "+time+" ms");
 		try {
 			Thread.sleep(time);
 		} catch (final InterruptedException e) {
@@ -61,9 +54,9 @@ public class TimeoutServlet extends HttpServlet {
 		final Writer w = response.getWriter();
 		final String str = "Test Timeout - time = "+time+" - random : "+UUID.randomUUID();
 		w.write(str);
-		//logger.info(str);
+		System.out.println(str);
 		w.flush();
-		//logger.info("timeout -- end");
+		System.out.println("timeout -- end");
 	}
 
 }

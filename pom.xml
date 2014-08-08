@@ -8,7 +8,7 @@
   <version>1.0</version>
   
   <dependencies>
-  
+
   	<dependency>
 		<groupId>org.telosys.webtools</groupId>
 		<artifactId>telosys-monitoring</artifactId>
