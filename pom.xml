@@ -4,7 +4,7 @@
   
   <name>telosys-webtools</name>
   <groupId>org.telosys.webtools</groupId>
-  <artifactId>timeout</artifactId>
+  <artifactId>telosys-timeout</artifactId>
   <version>1.0</version>
   
   <dependencies>
