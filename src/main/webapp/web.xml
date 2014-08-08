@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="to.be.defined" version="2.5">
+  
+  <filter>
+    <filter-name>Monitor</filter-name>
+    <filter-class>org.telosys.webtools.monitoring.RequestsMonitor</filter-class>    
+    <init-param>
+    	<param-name>duration</param-name>
+    	<param-value>1</param-value> <!-- default is 1000 ( 1 sec )  -->
+    </init-param>
+    <init-param>
+    	<param-name>logsize</param-name>
+    	<param-value>15</param-value> <!-- default is 100 -->
+    </init-param>
+    <init-param>
+    	<param-name>toptensize</param-name>
+    	<param-value>20</param-value> <!-- default is 10 -->
+    </init-param>
+    <init-param>
+    	<param-name>longestsize</param-name>
+    	<param-value>5</param-value> <!-- default is 10 -->
+    </init-param>
+    <init-param>
+    	<param-name>reporting</param-name>
+    	<param-value>/monitor</param-value> <!-- default is "/monitor" -->
+    </init-param>
+    <init-param>
+    	<param-name>trace</param-name>
+    	<param-value>true</param-value> <!-- default is false -->
+    </init-param>
+  </filter>
+  <filter-mapping>
+  	<filter-name>Monitor</filter-name>
+  	<url-pattern>/*</url-pattern>
+  </filter-mapping>
+  
+  <servlet>
+    <servlet-name>timeout-servlet</servlet-name>
+    <servlet-class>TimeoutServlet</servlet-class>
+    <load-on-startup>2</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>timeout-servlet</servlet-name>
+    <url-pattern>/timeout</url-pattern>
+  </servlet-mapping>
+
+  <session-config>
+    <session-timeout>100</session-timeout>
+  </session-config>
+  
+</web-app>
