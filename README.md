@@ -1,4 +1,4 @@
 telosys-timeout
 ===============
 
-Webapp for long requests testing
+Simulation of long requests in a Webapp.
